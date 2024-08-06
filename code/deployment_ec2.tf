@@ -1,7 +1,7 @@
 resource "aws_instance" "web_host" {
   # ec2 have plain text secrets in user data
   ami           = "${var.ami}"
-  instance_type = "t2.nano"
+  instance_type = "t2.micro"
 
   vpc_security_group_ids = [
   "${aws_security_group.web-node.id}"]
@@ -14,14 +14,14 @@ sudo systemctl start apache2
 sudo systemctl enable apache2
 export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMAAA
 export AWS_SECRET_ACCESS_KEY=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
-export AWS_DEFAULT_REGION=us-west-2
+export AWS_DEFAULT_REGION=ap-southeast-1
 echo "<h1>Deployed via Terraform</h1>" | sudo tee /var/www/html/index.html
 EOF
 
   tags = {
-    git_commit           = "1ab908f0bf65d473d5e94ad2af711a2b0847d283"
+    git_commit           = "7b8e286dd4e87e26c708eab7aa61cacbad59570b"
     git_file             = "code/deployment_ec2.tf"
-    git_last_modified_at = "2024-08-06 06:50:45"
+    git_last_modified_at = "2024-08-06 08:01:01"
     git_last_modified_by = "‘tester@tester.com’"
     git_modifiers        = "‘tester"
     git_org              = "im-lab-git"
