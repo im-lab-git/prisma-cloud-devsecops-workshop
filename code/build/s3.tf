@@ -16,6 +16,7 @@ resource "aws_s3_bucket" "dev_s3" {
     git_modifiers        = "‘tester"
     git_org              = "im-lab-git"
     git_repo             = "prisma-cloud-devsecops-workshop"
+    sample_name          = "sample"
   }
 }
 
